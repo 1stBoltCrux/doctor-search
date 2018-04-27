@@ -7,7 +7,10 @@ import {apiCall} from './api.js'
 
 let displaySearch = function(response){
   $("#output").empty();
-  $("#output").append("hello" + response);
+  for (var i = 0; i < response.data.length; i++) {
+    $("#output").append("<p>" + response.data[i].profile.bio + "</p>");
+  }
+
 }
 let searchError = function(){
   $("#output").empty();
