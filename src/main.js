@@ -7,9 +7,22 @@ import {apiCall} from './api.js'
 
 let displaySearch = function(response){
   $("#output").empty();
-  for (var i = 0; i < response.data.length; i++) {
-    $("#output").append("<p>" + response.data[i].profile.bio + "</p>");
+  if ( response.data.length <= 0) {
+    $("#output").text("Sorry, your search criteria does not return any results.")
   }
+  for (var i = 0; i < response.data.length; i++) {
+
+    $("#output").append("<ul>" + "<li>" + "First name: " + response.data[i].profile.first_name + "</li>" +
+                                 "<li>" + "Last name: " + response.data[i].profile.last_name + "</li>" +
+                                 "<li>" + response.data[i].practices[0].visit_address.city + "</li>" +
+                                 "<li>" + response.data[i].practices[0].visit_address.state + "</li>" +
+                                 "<li>" + response.data[i].practices[0].visit_address.street + "</li>" +
+                                 "<li>" + response.data[i].practices[0].visit_address.street2 + "</li>" +
+                                 "<li>" + response.data[i].practices[0].visit_address.zip + "</li>" +
+                                 "</ul>" +
+                                 "<p>" + response.data[i].profile.bio + "</p>");
+  }
+
 
 }
 let searchError = function(){
