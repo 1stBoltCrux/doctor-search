@@ -22,7 +22,7 @@ let displaySearch = function(response){
     if (response.data[i].practices[0].website === undefined) {
        response.data[i].practices[0].website ="<p>" + "Website: There is no website available for this practice." + "</p>";
     } else {
-    response.data[i].practices[0].website =  "<p>" + "Website: " + "<a href=" + "'" + response.data[i].practices[0].website + "'" + "target='blank'>"  + response.data[i].practices[0].website +  "</a>" + "</p>";
+      response.data[i].practices[0].website =  "<p>" + "Website: " + "<a href=" + "'" + response.data[i].practices[0].website + "'" + "target='blank'>"  + response.data[i].practices[0].website +  "</a>" + "</p>";
     }
     $("#output").append("<div class='doctorInfo card'>" + "<h3 class='doctorName'>" +  response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" +
                               "<div class='infoBody card-header'" +  "<p>" + response.data[i].practices[0].visit_address.city + " , " +

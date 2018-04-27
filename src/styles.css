@@ -21,8 +21,12 @@
 
 .mainHeader {
   margin-bottom: 40px;
+  padding-top: 100px;
 }
 
 .formContainer {
   background-color: #eef7fa;
+}
+.doctorImage {
+  float: right;
 }
