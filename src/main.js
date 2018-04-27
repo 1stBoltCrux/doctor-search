@@ -1,4 +1,3 @@
-
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,9 +33,8 @@ let displaySearch = function(response){
                                  "<p>" + areTheyAcceptingNewPatients + "</p>" +
                                  "<p>" + response.data[i].profile.bio + "</p>" + "</div>" + "</div>");
   }
-
-
 }
+
 let searchError = function(error){
   $("#output").empty();
   $("#output").text(`There has been an error: ${error.responseText} Please try again later.`);
@@ -56,6 +54,5 @@ $(document).ready(function(){
     let conditionSearchInput = "query=" + $("#conditionSearchInput").val();
     apiCall(displaySearch, conditionSearchInput, searchError);
     $("#conditionSearchInput").val("");
-});
-
+  });
 });
