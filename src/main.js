@@ -13,21 +13,25 @@ let displaySearch = function(response){
   for (var i = 0; i < response.data.length; i++) {
     let areTheyAcceptingNewPatients;
     console.log(response.data[i].practices[0].accepts_new_patients);
+    console.log(response.data[i].practices[0].website);
     if (response.data[i].practices[0].accepts_new_patients === true) {
       areTheyAcceptingNewPatients = "This doctor is currently accepting new patients."
     } else {
-      areTheyAcceptingNewPatients = "This doctor is not currently accepting new patients."
+      areTheyAcceptingNewPatients = "This doctor is NOT currently accepting new patients."
     }
-    $("#output").append("<ul>" + "<li>" + "First name: " + response.data[i].profile.first_name + "</li>" +
-                                 "<li>" + "Last name: " + response.data[i].profile.last_name + "</li>" +
-                                 "<li>" + response.data[i].practices[0].visit_address.city + "</li>" +
-                                 "<li>" + response.data[i].practices[0].visit_address.state + "</li>" +
-                                 "<li>" + response.data[i].practices[0].visit_address.street + "</li>" +
-                                 "<li>" + response.data[i].practices[0].visit_address.zip + "</li>" +
-                                 "<li>" + "Phone number: " + response.data[i].practices[0].phones[0].number + "</li>" +
-                                 "<li>" + areTheyAcceptingNewPatients + "</li>" +
-                                 "</ul>" +
-                                 "<p>" + response.data[i].profile.bio + "</p>");
+    if (response.data[i].practices[0].website === undefined) {
+       response.data[i].practices[0].website = "There is no website available for this practice."
+    }
+    $("#output").append("<div class='doctorInfo card'>" + "<h3 class='doctorName'>" +  response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" +
+                              "<div class='infoBody card-header'" +  "<p>" + response.data[i].practices[0].visit_address.city + " , " +
+                                  response.data[i].practices[0].visit_address.state + "</p>" +
+                                  response.data[i].practices[0].visit_address.street + " , " +
+                                  response.data[i].practices[0].visit_address.zip + "</p>" +
+                                 "<p>" + "Phone number: " + response.data[i].practices[0].phones[0].number + "</p>" +
+                                 "<p>" + "Website: " + response.data[i].practices[0].website + "</p>" +
+                                 "<p>" + areTheyAcceptingNewPatients + "</p>" +
+
+                                 "<p>" + response.data[i].profile.bio + "</p>" + "</div>" + "</div>");
   }
 
 
