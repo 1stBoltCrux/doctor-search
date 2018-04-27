@@ -1,9 +1,28 @@
 .doctorInfo {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  background-color: #e1f8fe;
+  margin: 20px 20px 20px 40px;
+  background-color: #eef7fa;
+  max-width: 400px;
 }
 
+#output {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
 .doctorName {
   text-align: center;
+}
+
+.buttonDiv {
+  margin-bottom: 20px;
+}
+
+.mainHeader {
+  margin-bottom: 40px;
+}
+
+.formContainer {
+  background-color: #eef7fa;
 }
