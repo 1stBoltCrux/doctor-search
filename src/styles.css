@@ -1,3 +1,12 @@
+button {
+  background-color: #afcae8;
+}
+
+body{
+background-color: #dee9f8;
+color: #617181;
+}
+
 .doctorInfo {
   margin: 20px 20px 20px 40px;
   background-color: #eef7fa;
