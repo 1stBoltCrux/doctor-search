@@ -45,8 +45,16 @@ let searchError = function(){
 $(document).ready(function(){
   $("#form1").submit(function(event){
     event.preventDefault();
-
-    let searchInput = $("#searchInput").val();
-    apiCall(displaySearch, searchInput, searchError);
+    let nameSearchInput = "name=" + $("#nameSearchInput").val();
+    apiCall(displaySearch, nameSearchInput, searchError);
+      // $("#searchInput").val("");
   });
+
+  $("#form2").submit(function(event){
+    event.preventDefault();
+    let conditionSearchInput = "query=" + $("#conditionSearchInput").val();
+    apiCall(displaySearch, conditionSearchInput, searchError);
+
+});
+
 });
